@@ -53,7 +53,7 @@ namespace TwitchChaosWithoutTwitch.Components
                     LandingStuff();
                 }
                 
-            }
+            } 
             if (SOR != null && !SOR.shipHasLanded && SOR.currentLevel.levelID == 3)
             {
                 timeTillNextEvent = 0f;

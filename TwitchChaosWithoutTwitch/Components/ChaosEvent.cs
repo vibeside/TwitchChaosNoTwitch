@@ -3,6 +3,7 @@ using BepInEx.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace TwitchChaosWithoutTwitch.Components
 {
