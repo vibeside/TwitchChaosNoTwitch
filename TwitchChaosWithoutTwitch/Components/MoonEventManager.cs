@@ -76,7 +76,7 @@ namespace TwitchChaosWithoutTwitch.Components
             furthestVent = RoundManager.Instance.allEnemyVents
             .OrderByDescending(x => Vector3.Distance(x.transform.position, RoundManager.FindMainEntrancePosition()))
             .First();
-            brokenForceField = Instantiate(NoMoreTwitch.balls);
+            brokenForceField = Instantiate(NoMoreTwitch.forcefieldPrefab);
             brokenForceField.transform.position = furthestVent.transform.position;
             StartCoroutine(ChangeScale(brokenForceField.transform, Vector3.one, Vector3.one * (Vector3.Distance(brokenForceField.transform.position, RoundManager.FindMainEntrancePosition()) * 2),300f));
             doBrokenForceField = true;

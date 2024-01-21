@@ -21,6 +21,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public bool alreadyLandEvented = false;
         public StartOfRound SOR;
         internal readonly List<ChaosEvent> landingEvents = new List<ChaosEvent>();
+        public GameObject? deathfieldObject;
         public float DeathFieldRange = 35f;
         public List<PlayerControllerB> activePlayers = new List<PlayerControllerB>();
         public void Awake()
@@ -37,6 +38,8 @@ namespace TwitchChaosWithoutTwitch.Components
             if(SOR != null && deathFieldOn) deathFieldOn = SOR.shipHasLanded;
             if (deathFieldOn) DeathField();
             if (landingEvents.Count == 0) PopulateLandingEvents();
+            //if(UnityInput.Current.GetKeyDown(KeyCode.X)) TurnOnDeathFieldClientRpc();
+            //if (UnityInput.Current.GetKeyDown(KeyCode.Z)) deathfieldObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_StartTime", Time.time);
         }
         public void ChooseRandomEvent(int overrideRandom = -1, bool restrictToOnce = true)
         {
@@ -146,9 +149,10 @@ namespace TwitchChaosWithoutTwitch.Components
             {
                 deathFieldOn = true;
             }
-            GameObject temp = Instantiate(NoMoreTwitch.balls);
-            temp.transform.localScale = Vector3.one * DeathFieldRange;
-            temp.transform.position = SOR.middleOfShipNode.position;
+            deathfieldObject = Instantiate(NoMoreTwitch.forcefieldPrefab);
+            deathfieldObject.transform.localScale = Vector3.one * DeathFieldRange;
+            deathfieldObject.transform.position = SOR.middleOfShipNode.position;
+            deathfieldObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_StartTime", Time.time);
             NoMoreTwitch.mls.LogInfo("deathfield on");
             ChaosManager.NetworkDisplayTip("Ship defense activated!","Any enemies that get too close get EVAPORATED");
             //debug code, ignore

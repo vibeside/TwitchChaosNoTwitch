@@ -33,7 +33,7 @@ namespace TwitchChaosWithoutTwitch
         public static GameObject? chaosContainer;
         public static bool configShowAllDebug = true;
         public static AssetBundle assetBundle = AssetBundle.LoadFromMemory(Properties.Resources.forcefield);
-        public static GameObject balls = assetBundle.LoadAsset<GameObject>("Assets/Sphere.prefab");
+        public static GameObject forcefieldPrefab = assetBundle.LoadAsset<GameObject>("Assets/Sphere.prefab");
         public GameObject? despawnableobject;
         
         private (uint, uint, uint, uint) QuadHash(int SALT = 0)
@@ -47,9 +47,9 @@ namespace TwitchChaosWithoutTwitch
         public void Awake()
         {
             mls = base.Logger;
-            if(balls == null)
+            if(forcefieldPrefab == null)
             {
-                mls.LogInfo("balls is null");
+                mls.LogInfo("forcefield is null");
             }
             foreach (Type type in
                 Assembly.GetAssembly(typeof(EnemyAI)).GetTypes()
