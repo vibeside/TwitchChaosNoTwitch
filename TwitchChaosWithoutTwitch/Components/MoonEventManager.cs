@@ -28,7 +28,6 @@ namespace TwitchChaosWithoutTwitch.Components
                 DestroyImmediate(Instance);
             }
             Instance = this;
-            NoMoreTwitch.mls.LogInfo("moons");
 
         }
         public void Update()

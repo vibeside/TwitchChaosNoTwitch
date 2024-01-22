@@ -16,8 +16,8 @@ namespace TwitchChaosWithoutTwitch.Components
     {
         public static EnemyEventManager Instance;
         public RoundManager? roundManagerInstance;
-        internal readonly List<ChaosEvent> enemyEvents = new List<ChaosEvent>();
-        internal readonly List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
+        public List<ChaosEvent> enemyEvents = new List<ChaosEvent>();
+        public List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
         public bool enemiesSpawnExplosions = false;
         public NetworkVariable<int> temp = new NetworkVariable<int>();
         public void Awake()

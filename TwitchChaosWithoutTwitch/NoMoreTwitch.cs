@@ -27,7 +27,7 @@ namespace TwitchChaosWithoutTwitch
         //logger.loginfo(""); to log
         private readonly Harmony harmony = new Harmony(modGUID);
         public static ManualLogSource mls;
-        internal static NoMoreTwitch? instance;
+        public static NoMoreTwitch? instance;
         public static GameObject? chaosHolder;
         public static List<EnemyAI> objects = new List<EnemyAI>();
         public static GameObject? chaosContainer;

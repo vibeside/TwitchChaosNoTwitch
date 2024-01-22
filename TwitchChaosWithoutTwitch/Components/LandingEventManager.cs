@@ -121,7 +121,6 @@ namespace TwitchChaosWithoutTwitch.Components
             // thank u gulag
             int cache = Random.Range(1, 50);
             int cache2 = Random.Range(0, activePlayers.Count);
-            NoMoreTwitch.mls.LogInfo(cache);
             activePlayers[cache2].DamagePlayerFromOtherClientServerRpc(cache,Vector3.zero,cache2);
             ChaosManager.NetworkDisplayTip("Space debris!",$"One of your suits has been damaged! Sorry!\nSuit integrity:{activePlayers[cache2].health}");
         }
@@ -153,7 +152,6 @@ namespace TwitchChaosWithoutTwitch.Components
             deathfieldObject.transform.localScale = Vector3.one * DeathFieldRange;
             deathfieldObject.transform.position = SOR.middleOfShipNode.position;
             deathfieldObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_StartTime", Time.time);
-            NoMoreTwitch.mls.LogInfo("deathfield on");
             ChaosManager.NetworkDisplayTip("Ship defense activated!","Any enemies that get too close get EVAPORATED");
             //debug code, ignore
             

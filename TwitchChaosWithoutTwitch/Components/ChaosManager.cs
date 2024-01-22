@@ -69,7 +69,6 @@ namespace TwitchChaosWithoutTwitch.Components
                 {
                     timerEvents[Random.Range(0, timerEvents.Count)].delegatedEvent();
                 }
-                NoMoreTwitch.mls.LogInfo("timer");
             }
         }
         public void LandingStuff()
@@ -87,7 +86,7 @@ namespace TwitchChaosWithoutTwitch.Components
                     return;
                 }
             }
-            NoMoreTwitch.mls.LogInfo($"Didn't find an event by the name {name}");
+            HUDManager.Instance.DisplayTip($"Didn't find an event by the name {name}","");
         }
         [ClientRpc]
         public void AllPlayerTipClientRpc(string header, string body)
