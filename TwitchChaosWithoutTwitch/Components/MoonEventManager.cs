@@ -137,7 +137,7 @@ namespace TwitchChaosWithoutTwitch.Components
         {
             RegisterMoonEvent(new ChaosEvent(SpawnAllOutsideEnemies, "AllEnemies", true));
             RegisterMoonEvent(new ChaosEvent(BrokenForcefieldSomewhereClientRpc, "Broken",true));
-            RegisterMoonEvent(new ChaosEvent(SpawnAllInsideEnemies, "Quicksand", true));
+            RegisterMoonEvent(new ChaosEvent(SpawnAllInsideEnemies, "Inside", true));
             RegisterMoonEvent(new ChaosEvent(MakeTimeFasterClientRpc, "FasterTime",true));
             RegisterMoonEvent(new ChaosEvent(PullFakeApparatusClientRpc, "FakeApp",true));
             ChaosManager.listOfAllEvents.AddRange(moonEvents);

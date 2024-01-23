@@ -153,9 +153,9 @@ namespace TwitchChaosWithoutTwitch
             orig(self, bodyVelocity, spawnBody, causeOfDeath, deathAnimation);
             if (EnemyEventManager.Instance != null)
             {
-                if (EnemyEventManager.Instance.enemiesSpawnExplosions && causeOfDeath != CauseOfDeath.Bludgeoning)
+                if (EnemyEventManager.Instance.enemiesSpawnExplosions && causeOfDeath != CauseOfDeath.Bludgeoning && causeOfDeath != CauseOfDeath.Gravity)
                 {
-                    StartCoroutine(SpawnExplosionIn5Seconds(self.transform.position));
+                    ChaosManager.Instance.SpawnExplosionIn5SecondsClientRpc(self.transform.position);
                 }
             }
         }
@@ -171,7 +171,7 @@ namespace TwitchChaosWithoutTwitch
                     && causeOfDeath != CauseOfDeath.Bludgeoning
                     && !self.GetComponent<PlayerStatModifiers>().immortal)
                 {
-                    StartCoroutine(SpawnExplosionIn5Seconds(self.transform.position));
+                    ChaosManager.Instance.SpawnExplosionIn5SecondsClientRpc(self.transform.position);
                 }
             }
         }
@@ -278,18 +278,6 @@ namespace TwitchChaosWithoutTwitch
                     }
                 }
             }
-        }
-        public static IEnumerator SpawnExplosionIn5Seconds(Vector3 player)
-        {
-            for (int i = 6; i > 0; i--)
-            {
-                yield return new WaitForSeconds(1);
-                if(HUDManager.Instance != null)
-                {
-                    HUDManager.Instance.DisplayTip("Explosion in",$"{i-1}");
-                }
-            }
-            Landmine.SpawnExplosion(player,true,5,15);
         }
     }
 }

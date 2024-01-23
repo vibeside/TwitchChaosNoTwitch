@@ -27,6 +27,7 @@ namespace TwitchChaosWithoutTwitch.Components
                 DestroyImmediate(Instance);
             }
             Instance = this;
+            temp.Value = Random.Range(0, 2);
         }
         public void Update()
         {
@@ -40,6 +41,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public void RandomFastEnemyClientRpc()
         {
             temp.Value = Random.Range(0, spawnedEnemies.Count);
+            if (spawnedEnemies.Count == 0) return;
             if (spawnedEnemies[temp.Value] != null)
             {
                 if (spawnedEnemies[temp.Value].GetComponent<EnemyStatModifiers>() != null)
@@ -93,7 +95,8 @@ namespace TwitchChaosWithoutTwitch.Components
                 }
             }
         }
-        public void SpawnExplosionsOnAttack()
+        [ClientRpc]
+        public void SpawnExplosionsOnAttackClientRpc()
         {
             enemiesSpawnExplosions = true;
             ChaosManager.NetworkDisplayTip("WARNING:", "THE ENEMIES HAVE LEANRED GUERILLA WARFARE!");
@@ -109,7 +112,7 @@ namespace TwitchChaosWithoutTwitch.Components
             RegisterEnemyEvent(new ChaosEvent(DoLessDamageClientRpc, "Less",true));
             RegisterEnemyEvent(new ChaosEvent(KillAllEnemies, "Kill", true));
             RegisterEnemyEvent(new ChaosEvent(DoMoreDamageClientRpc, "More", true));
-            RegisterEnemyEvent(new ChaosEvent(SpawnExplosionsOnAttack, "Bombs", true));
+            RegisterEnemyEvent(new ChaosEvent(SpawnExplosionsOnAttackClientRpc, "Bombs", true));
             ChaosManager.listOfAllEvents.AddRange(enemyEvents);
         }
     }

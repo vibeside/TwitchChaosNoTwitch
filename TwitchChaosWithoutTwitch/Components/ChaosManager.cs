@@ -99,6 +99,23 @@ namespace TwitchChaosWithoutTwitch.Components
             //{
                 Instance.AllPlayerTipClientRpc(header, body);
             //}
-        } 
+        }
+        [ClientRpc]
+        public void SpawnExplosionIn5SecondsClientRpc(Vector3 player)
+        {
+            Instance.StartCoroutine(DelayedExplosion(player));
+        }
+        public static IEnumerator DelayedExplosion(Vector3 player)
+        {
+            for (int i = 6; i > 0; i--)
+            {
+                yield return new WaitForSeconds(1);
+                if (HUDManager.Instance != null)
+                {
+                    HUDManager.Instance.DisplayTip("Explosion in", $"{i - 1}");
+                }
+            }
+            Landmine.SpawnExplosion(player, true, 5, 15);
+        }
     }
 }
