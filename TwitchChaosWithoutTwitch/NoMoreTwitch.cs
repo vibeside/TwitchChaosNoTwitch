@@ -126,6 +126,7 @@ namespace TwitchChaosWithoutTwitch
         private void RoundManager_DetectElevatorIsRunning(On.RoundManager.orig_DetectElevatorIsRunning orig, RoundManager self)
         {
             orig(self);
+            MoonEventManager.Instance.doBrokenForceField = false;
             if (MoonEventManager.Instance.scaleCoroutine != null)
             {
                 StopCoroutine(MoonEventManager.Instance.scaleCoroutine);

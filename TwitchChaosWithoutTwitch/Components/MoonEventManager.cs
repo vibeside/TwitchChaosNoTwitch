@@ -51,8 +51,10 @@ namespace TwitchChaosWithoutTwitch.Components
         }
         public void DoBrokenForceField()
         {
+            if (brokenForceField == null) return;
             foreach(var i in EnemyEventManager.Instance.spawnedEnemies)
             {
+                if(i == null) continue;
                 if(Vector3.Distance(i.transform.position, furthestVent.transform.position) < brokenForceField.transform.localScale.x/2)
                 {
                     i.GetComponent<NetworkObject>().Despawn();
@@ -60,7 +62,8 @@ namespace TwitchChaosWithoutTwitch.Components
             }
             foreach(var i in StartOfRound.Instance.allPlayerScripts)
             {
-                if(Vector3.Distance(i.transform.position,furthestVent.transform.position) < brokenForceField.transform.localScale.x/2)
+                if (i == null) continue;
+                if (Vector3.Distance(i.transform.position,furthestVent.transform.position) < brokenForceField.transform.localScale.x/2)
                 {
                     if (timeTillDamage >= 1f)
                     {
