@@ -20,7 +20,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public bool deathFieldOn = false;
         public bool alreadyLandEvented = false;
         public StartOfRound SOR;
-        internal readonly List<ChaosEvent> landingEvents = new List<ChaosEvent>();
+        public List<ChaosEvent> landingEvents = new List<ChaosEvent>();
         public GameObject? deathfieldObject;
         public float DeathFieldRange = 35f;
         public List<PlayerControllerB> activePlayers = new List<PlayerControllerB>();
