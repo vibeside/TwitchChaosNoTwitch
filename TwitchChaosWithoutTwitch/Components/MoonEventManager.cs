@@ -73,18 +73,25 @@ namespace TwitchChaosWithoutTwitch.Components
                 }
             }
         }
-        [ClientRpc]
-        public void BrokenForcefieldSomewhereClientRpc()
+        public void BrokenFFServerEvent()
         {
             furthestVent = RoundManager.Instance.allEnemyVents
             .OrderByDescending(x => Vector3.Distance(x.transform.position, RoundManager.FindMainEntrancePosition()))
             .First();
+            BrokenForcefieldSomewhereClientRpc(furthestVent.GetComponent<NetworkObject>());
+        }
+        [ClientRpc]
+        public void BrokenForcefieldSomewhereClientRpc(NetworkObjectReference ventObj)
+        {
+            if(ventObj.TryGet(out NetworkObject vent))
+            {
+                furthestVent = vent.GetComponent<EnemyVent>();
+            }
             brokenForceField = Instantiate(NoMoreTwitch.forcefieldPrefab);
             brokenForceField.transform.position = furthestVent.transform.position;
             scaleCoroutine = StartCoroutine(ChangeScale(brokenForceField.transform, Vector3.one, Vector3.one * (Vector3.Distance(brokenForceField.transform.position, RoundManager.FindMainEntrancePosition()) * 2),300f));
             doBrokenForceField = true;
             ChaosManager.NetworkDisplayTip("A forcefield has broken","Do not enter the red field. Your suits will protect you for a few seconds.");
-            
         }
         public void SpawnAllInsideEnemies()
         {
@@ -136,7 +143,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public void PopulateMoonEvents()
         {
             RegisterMoonEvent(new ChaosEvent(SpawnAllOutsideEnemies, "AllEnemies", true));
-            RegisterMoonEvent(new ChaosEvent(BrokenForcefieldSomewhereClientRpc, "Broken",true));
+            RegisterMoonEvent(new ChaosEvent(BrokenFFServerEvent, "Broken",true));
             RegisterMoonEvent(new ChaosEvent(SpawnAllInsideEnemies, "Inside", true));
             RegisterMoonEvent(new ChaosEvent(MakeTimeFasterClientRpc, "FasterTime",true));
             RegisterMoonEvent(new ChaosEvent(PullFakeApparatusClientRpc, "FakeApp",true));
