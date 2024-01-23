@@ -28,7 +28,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public bool shipLandedLastFrame = false;
         public float timeTillNextEvent = 0f;
         public float timeBetweenEvents = 60f;
-        internal readonly List<ChaosEvent> listOfAllEvents = new List<ChaosEvent>();
+        public static List<ChaosEvent> listOfAllEvents = new List<ChaosEvent>();
         public List<ChaosEvent> timerEvents = new List<ChaosEvent>();
 
         public void Awake()

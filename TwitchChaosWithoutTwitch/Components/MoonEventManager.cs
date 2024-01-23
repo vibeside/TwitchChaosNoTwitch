@@ -136,7 +136,7 @@ namespace TwitchChaosWithoutTwitch.Components
             RegisterMoonEvent(new ChaosEvent(SpawnAllInsideEnemies, "Quicksand", true));
             RegisterMoonEvent(new ChaosEvent(MakeTimeFasterClientRpc, "FasterTime",true));
             RegisterMoonEvent(new ChaosEvent(PullFakeApparatusClientRpc, "FakeApp",true));
-            ChaosManager.Instance.listOfAllEvents.AddRange(moonEvents);
+            ChaosManager.listOfAllEvents.AddRange(moonEvents);
         }
         public static IEnumerator ChangeScale(Transform target, Vector3 startScale, Vector3 endScale, float duration)
         {

@@ -168,7 +168,7 @@ namespace TwitchChaosWithoutTwitch.Components
             RegisterLandingEvent(new ChaosEvent(FiveHundredScrap, "Scrap"));
             RegisterLandingEvent(new ChaosEvent(RandomDamagePlayer, "Weaken"));
             RegisterLandingEvent(new ChaosEvent(TurnOnDeathFieldClientRpc, "Death"));
-            ChaosManager.Instance.listOfAllEvents.AddRange(landingEvents);
+            ChaosManager.listOfAllEvents.AddRange(landingEvents);
         }
 
     }

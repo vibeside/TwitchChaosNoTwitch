@@ -16,7 +16,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public ChaosEvent(EventDelegate eventDelegate, string _name = "", bool _availableForTimer = false)
         {
             name = _name;
-            if (_name == "") name = $"Unnamed Event {ChaosManager.Instance.listOfAllEvents.Count}";
+            if (_name == "") name = $"Unnamed Event {ChaosManager.listOfAllEvents.Count}";
             NoMoreTwitch.mls.LogInfo($"{name} was loaded!");
             delegatedEvent = eventDelegate;
             availableForTimer = _availableForTimer;
