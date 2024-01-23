@@ -80,7 +80,7 @@ namespace TwitchChaosWithoutTwitch.Components
             brokenForceField.transform.position = furthestVent.transform.position;
             scaleCoroutine = StartCoroutine(ChangeScale(brokenForceField.transform, Vector3.one, Vector3.one * (Vector3.Distance(brokenForceField.transform.position, RoundManager.FindMainEntrancePosition()) * 2),300f));
             doBrokenForceField = true;
-            ChaosManager.NetworkDisplayTip("WARNING: The forcefield has broken","Do not enter the red field. Your suits will protect you for a few seconds.");
+            ChaosManager.NetworkDisplayTip("A forcefield has broken","Do not enter the red field. Your suits will protect you for a few seconds.");
             
         }
         public void SpawnAllInsideEnemies()

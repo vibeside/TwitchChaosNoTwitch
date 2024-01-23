@@ -117,7 +117,6 @@ namespace TwitchChaosWithoutTwitch
             TimeOfDay.Instance.globalTimeSpeedMultiplier = 1f;
             PlayersEventManager.Instance.ResetStatsClientRpc();
             MoonEventManager.Instance.doBrokenForceField = false;
-            StopCoroutine(MoonEventManager.Instance.scaleCoroutine);
             LandingEventManager.Instance.deathFieldOn = false;
             LandingEventManager.Instance.alreadyLandEvented = false;
             EnemyEventManager.Instance.enemiesSpawnExplosions = false;
@@ -127,7 +126,10 @@ namespace TwitchChaosWithoutTwitch
         private void RoundManager_DetectElevatorIsRunning(On.RoundManager.orig_DetectElevatorIsRunning orig, RoundManager self)
         {
             orig(self);
-            
+            if (MoonEventManager.Instance.scaleCoroutine != null)
+            {
+                StopCoroutine(MoonEventManager.Instance.scaleCoroutine);
+            }
         }
 
         private bool PlayerControllerB_AllowPlayerDeath(On.GameNetcodeStuff.PlayerControllerB.orig_AllowPlayerDeath orig, PlayerControllerB self)
