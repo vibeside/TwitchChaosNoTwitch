@@ -96,7 +96,7 @@ namespace TwitchChaosWithoutTwitch.Components
             RegisterPlayerEvent(new ChaosEvent(DrainPlayerSprintClientRpc, "NoSprint", true));
             RegisterPlayerEvent(new ChaosEvent(TeleportPlayerUpClientRpc, "Teleport", true));
             RegisterPlayerEvent(new ChaosEvent(RandomPlayerGetsInfiniteSprintClientRpc, "InfiniteSprint", true));
-            RegisterPlayerEvent(new ChaosEvent(Dropitems, "Scale", true));
+            RegisterPlayerEvent(new ChaosEvent(Dropitems, "Slippery", true));
             RegisterPlayerEvent(new ChaosEvent(MakeRandomPlayerImmortalClientRpc, "Immortal", true));
             ChaosManager.listOfAllEvents.AddRange(playerEvents);
         }

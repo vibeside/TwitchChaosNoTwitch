@@ -223,7 +223,7 @@ namespace TwitchChaosWithoutTwitch
         private void SubmitChatPatch(On.HUDManager.orig_SubmitChat_performed orig, HUDManager self, UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             string[] chatMessage = self.chatTextField.text.Split(' ');
-            if (chatMessage[0] == "/chc" && chatMessage.Length == 3 && self.localPlayer == GameNetworkManager.Instance.localPlayerController)
+            if (chatMessage[0] == "/chc" && chatMessage.Length == 3 && self.IsHost)
             {
                 //if (chatMessage[1] == "c") ChaosManager.Instance.PickEventByName(chatMessage[2]);
                 //if (chatMessage[1] == "s") ChaosManager.NetworkDisplayTip(chatMessage[2].Split('*')[0], chatMessage[2].Split('*')[1]);

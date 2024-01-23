@@ -48,7 +48,7 @@ namespace TwitchChaosWithoutTwitch.Components
             //if (EEMinstance == null && EnemyEventManager.instance != null) EEMinstance = EnemyEventManager.instance;
             if (SOR != null && LEMinstance != null)
             {
-                if (shipLandedLastFrame != SOR.shipHasLanded && SOR.shipHasLanded && SOR.currentLevel.levelID != 3)
+                if (shipLandedLastFrame != SOR.shipHasLanded && SOR.shipHasLanded && SOR.currentLevel.levelID != 3 && IsHost && IsServer)
                 {
                     LandingStuff();
                 }
@@ -61,7 +61,7 @@ namespace TwitchChaosWithoutTwitch.Components
                     timeTillNextEvent = 0f;
                 }
             }
-            if(timeTillNextEvent > 60f)
+            if(timeTillNextEvent > 60f && IsHost && IsServer)
             {
                 timeTillNextEvent = 0f;
                 timerEvents = listOfAllEvents.Where(x => x.availableForTimer).ToList();
