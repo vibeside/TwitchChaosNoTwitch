@@ -117,6 +117,7 @@ namespace TwitchChaosWithoutTwitch
             TimeOfDay.Instance.globalTimeSpeedMultiplier = 1f;
             PlayersEventManager.Instance.ResetStatsClientRpc();
             MoonEventManager.Instance.doBrokenForceField = false;
+            StopCoroutine(MoonEventManager.Instance.scaleCoroutine);
             LandingEventManager.Instance.deathFieldOn = false;
             LandingEventManager.Instance.alreadyLandEvented = false;
             EnemyEventManager.Instance.enemiesSpawnExplosions = false;

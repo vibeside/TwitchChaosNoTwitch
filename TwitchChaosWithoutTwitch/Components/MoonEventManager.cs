@@ -21,6 +21,7 @@ namespace TwitchChaosWithoutTwitch.Components
         public GameObject brokenForceField;
         public float timeTillDamage = 0f;
         public List<ChaosEvent> moonEvents = new List<ChaosEvent>();
+        public Coroutine? scaleCoroutine;
         public void Awake()
         {
             if (Instance != null)
@@ -77,7 +78,7 @@ namespace TwitchChaosWithoutTwitch.Components
             .First();
             brokenForceField = Instantiate(NoMoreTwitch.forcefieldPrefab);
             brokenForceField.transform.position = furthestVent.transform.position;
-            StartCoroutine(ChangeScale(brokenForceField.transform, Vector3.one, Vector3.one * (Vector3.Distance(brokenForceField.transform.position, RoundManager.FindMainEntrancePosition()) * 2),300f));
+            scaleCoroutine = StartCoroutine(ChangeScale(brokenForceField.transform, Vector3.one, Vector3.one * (Vector3.Distance(brokenForceField.transform.position, RoundManager.FindMainEntrancePosition()) * 2),300f));
             doBrokenForceField = true;
             ChaosManager.NetworkDisplayTip("WARNING: The forcefield has broken","Do not enter the red field. Your suits will protect you for a few seconds.");
             
