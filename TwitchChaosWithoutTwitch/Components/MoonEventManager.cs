@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace TwitchChaosWithoutTwitch.Components
 {
-    internal class MoonEventManager : NetworkBehaviour
+    public class MoonEventManager : NetworkBehaviour
     {
         public static MoonEventManager Instance;
         public RoundManager rMInstance;

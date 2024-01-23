@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace TwitchChaosWithoutTwitch.Components
 {
-    internal class EnemyEventManager : NetworkBehaviour
+    public class EnemyEventManager : NetworkBehaviour
     {
         public static EnemyEventManager Instance;
         public RoundManager? roundManagerInstance;

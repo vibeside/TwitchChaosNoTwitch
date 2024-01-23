@@ -14,7 +14,7 @@ namespace TwitchChaosWithoutTwitch.Components
 {
     // thank you mama llama | robin
 
-    internal class ChaosManager : NetworkBehaviour
+    public class ChaosManager : NetworkBehaviour
     {
         // naming conventions be damned, i use my own
         public static ChaosManager Instance;

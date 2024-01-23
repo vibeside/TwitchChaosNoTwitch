@@ -14,7 +14,7 @@ using GameNetcodeStuff;
 
 namespace TwitchChaosWithoutTwitch.Components
 {
-    internal class LandingEventManager : NetworkBehaviour
+    public class LandingEventManager : NetworkBehaviour
     {
         public static LandingEventManager Instance;
         public bool deathFieldOn = false;

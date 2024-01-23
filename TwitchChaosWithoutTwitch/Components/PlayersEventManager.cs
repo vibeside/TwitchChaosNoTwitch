@@ -11,7 +11,7 @@ using Unity.Netcode;
 
 namespace TwitchChaosWithoutTwitch.Components
 {
-    internal class PlayersEventManager : NetworkBehaviour
+    public class PlayersEventManager : NetworkBehaviour
     {
         public static PlayersEventManager Instance;
         public List<PlayerControllerB> activePlayers = new List<PlayerControllerB>();
