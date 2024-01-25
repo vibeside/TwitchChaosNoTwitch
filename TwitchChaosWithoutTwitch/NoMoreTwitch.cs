@@ -132,7 +132,6 @@ namespace TwitchChaosWithoutTwitch
                 StopCoroutine(MoonEventManager.Instance.scaleCoroutine);
             }
         }
-
         private bool PlayerControllerB_AllowPlayerDeath(On.GameNetcodeStuff.PlayerControllerB.orig_AllowPlayerDeath orig, PlayerControllerB self)
         {
             if (self.TryGetComponent(out PlayerStatModifiers mods))
