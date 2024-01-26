@@ -129,10 +129,6 @@ namespace TwitchChaosWithoutTwitch
         {
             orig(self);
             MoonEventManager.Instance.doBrokenForceField = false;
-            if (MoonEventManager.Instance.scaleCoroutine != null)
-            {
-                StopCoroutine(MoonEventManager.Instance.scaleCoroutine);
-            }
         }
         private bool PlayerControllerB_AllowPlayerDeath(On.GameNetcodeStuff.PlayerControllerB.orig_AllowPlayerDeath orig, PlayerControllerB self)
         {
