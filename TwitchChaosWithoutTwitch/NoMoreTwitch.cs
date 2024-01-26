@@ -57,6 +57,7 @@ namespace TwitchChaosWithoutTwitch
             {
                 objects.Add((EnemyAI)Activator.CreateInstance(type));
             }
+
             //balls = assetBundle.LoadAsset<Shader>("assets/forcefield");
             //netValidator = new NetcodeValidator(modGUID);
             //netValidator.PatchAll();
@@ -119,6 +120,7 @@ namespace TwitchChaosWithoutTwitch
             MoonEventManager.Instance.doBrokenForceField = false;
             LandingEventManager.Instance.deathFieldOn = false;
             LandingEventManager.Instance.alreadyLandEvented = false;
+            DestroyImmediate(LandingEventManager.Instance.deathfieldObject);
             EnemyEventManager.Instance.enemiesSpawnExplosions = false;
             return orig(self);
         }
