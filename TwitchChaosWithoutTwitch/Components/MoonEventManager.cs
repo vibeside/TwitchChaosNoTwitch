@@ -142,7 +142,7 @@ namespace TwitchChaosWithoutTwitch.Components
         }
         public void PopulateMoonEvents()
         {
-            RegisterMoonEvent(new ChaosEvent(SpawnAllOutsideEnemies, "AllEnemies", true));
+            RegisterMoonEvent(new ChaosEvent(SpawnAllOutsideEnemies, "Outside", true));
             RegisterMoonEvent(new ChaosEvent(BrokenFFServerEvent, "Broken",true));
             RegisterMoonEvent(new ChaosEvent(SpawnAllInsideEnemies, "Inside", true));
             RegisterMoonEvent(new ChaosEvent(MakeTimeFasterClientRpc, "FasterTime",true));

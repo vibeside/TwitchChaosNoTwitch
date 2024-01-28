@@ -26,6 +26,7 @@ namespace TwitchChaosWithoutTwitch
         public const string modVersion = "0.1.0.0";
         //logger.loginfo(""); to log
         private readonly Harmony harmony = new Harmony(modGUID);
+        public static ConfigEntry<string>? configTimerEvents;
         public static ManualLogSource mls;
         public static NoMoreTwitch? instance;
         public static GameObject? chaosHolder;
@@ -47,6 +48,11 @@ namespace TwitchChaosWithoutTwitch
         public void Awake()
         {
             mls = base.Logger;
+            configTimerEvents = Config.Bind("Event Controls","Event whitelist", "NoSprint,Teleport,InfiniteSprint,Slippery,Immortal,Fast,Less,Kill,More,Bombs,Outside,Broken,Inside,FasterTime,FakeApp", "Put any of the following seperated by a comma in order to whitelist them to the timer\n" +
+                                                                                                                                     "NoSprint,Teleport,InfiniteSprint,Slippery,Immortal\n" +
+                                                                                                                                     "Fast,Less,Kill,More,Bombs\n"+
+                                                                                                                                     "Upgrades,Tools,Scrap,Weaken,Death\n"+
+                                                                                                                                     "Outside,Broken,Inside,FasterTime,FakeApp");
             if(forcefieldPrefab == null)
             {
                 mls.LogInfo("forcefield is null");
