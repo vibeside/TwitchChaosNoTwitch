@@ -76,7 +76,7 @@ namespace TwitchChaosWithoutTwitch.Components
             if(LEMinstance == null || SOR == null) return;
             LEMinstance.ChooseRandomEvent();
         }
-        public void CheckConfig(List<ChaosEvent> events)
+        public static void CheckConfig(List<ChaosEvent> events)
         {
             if (NoMoreTwitch.configTimerEvents == null) return;
             string[] configSplit = NoMoreTwitch.configTimerEvents.Value.Split(',');

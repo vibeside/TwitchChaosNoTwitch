@@ -113,6 +113,7 @@ namespace TwitchChaosWithoutTwitch.Components
             RegisterEnemyEvent(new ChaosEvent(KillAllEnemies, "Kill", true));
             RegisterEnemyEvent(new ChaosEvent(DoMoreDamageClientRpc, "More", true));
             RegisterEnemyEvent(new ChaosEvent(SpawnExplosionsOnAttackClientRpc, "Bombs", true));
+            ChaosManager.CheckConfig(enemyEvents);
             ChaosManager.listOfAllEvents.AddRange(enemyEvents);
         }
     }
